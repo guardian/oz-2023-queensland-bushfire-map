@@ -147,6 +147,8 @@ export function render() {
 
 If you want to use React modules with Preact, you need to set `ssr.noExternal` to `true` in `vite.config.js`. This ensures that import statements in dependencies are properly aliased to `preact/compat`.
 
+See [Vite documentation](https://vitejs.dev/guide/ssr.html#ssr-externals) for more details.
+
 ## Supported browsers 
 
 A list of browsers that the guardian supports can be found here: [https://www.theguardian.com/help/recommended-browsers](https://www.theguardian.com/help/recommended-browsers)
