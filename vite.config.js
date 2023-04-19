@@ -79,5 +79,11 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
+    ssr: {
+      // Dependences are not run through Vite's transform module by default.
+      // In some cases, you might want to uncomment this setting, e.g. when
+      // you want a React module to work with preact/compat aliasing.
+      // noExternal: true,
+    }
   };
 });
