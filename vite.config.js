@@ -68,18 +68,14 @@ export default defineConfig(({ mode }) => {
     build: {
       copyPublicDir: false,
       sourcemap: true,
-      lib: {
-        entry: path.resolve(__dirname, `src/atoms/${mode}/app.js`),
-        name: "atom",
-        formats: ["iife"],
-        fileName: (_) => "app.js",
-      },
       target: "es2015",
       emptyOutDir: true,
       rollupOptions: {
         input: path.resolve(__dirname, `src/atoms/${mode}/app.js`),
         output: {
           dir: path.resolve(__dirname, `build/${mode}`),
+          entryFileNames: "[name].js",
+          assetFileNames: "style.[ext]",
         },
       },
     },
