@@ -15,6 +15,7 @@
     "start": "vite"
   },
   "devDependencies": {
+    "@preact/preset-vite": "^2.5.0",
     "@rollup/plugin-replace": "^4.0.0",
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "autoprefixer": "^10.4.7",
@@ -24,6 +25,7 @@
     "mime-types": "^2.1.35",
     "ora": "^6.1.2",
     "postcss": "^8.4.13",
+    "preact-render-to-string": "^6.0.2",
     "rollup": "^2.3.4",
     "sass": "^1.51.0",
     "sass-mq": "^6.0.0",
@@ -31,8 +33,7 @@
     "svelte-preprocess": "^4.10.6",
     "vite": "^4.0.3",
     "vite-plugin-inspect": "^0.7.11",
-    "vite-plugin-static-copy": "^0.13.0",
-    "@preact/preset-vite": "^2.5.0"
+    "vite-plugin-static-copy": "^0.13.0"
   },
   "dependencies": {
     "preact": "^10.12.1"
