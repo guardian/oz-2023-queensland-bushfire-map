@@ -18,10 +18,19 @@ export function testHarness(options = {}) {
 
         configureServer(server) {
             server.middlewares.use(async (req, res, next) => {
-                const url = decodeURI(req.url);
-                const path = normalizePath(url);
+                let url = null;
+                try {
+                    url = decodeURI(req.url);
+                } catch (error) {
+                    // catch the use of <%= path %>
+                    if (req.url.includes('%3C%=%20path%20%%3E')) {
+                        console.error('The use of <%= path %> is not supported in this template. Please use __assetsPath__ instead')
+                    }
+                    console.error('Invalid url:', req.url);
+                    return next();
+                }
 
-                // console.log('request path', path);
+                const path = normalizePath(url);
 
                 if (path === '/' || path.startsWith('/atoms/')) {
 
