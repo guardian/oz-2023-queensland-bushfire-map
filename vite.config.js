@@ -70,12 +70,14 @@ export default defineConfig(({ mode }) => {
       sourcemap: true,
       target: "es2015",
       emptyOutDir: true,
+      cssCodeSplit: false,
       rollupOptions: {
         input: path.resolve(__dirname, `src/atoms/${mode}/app.js`),
         output: {
           dir: path.resolve(__dirname, `build/${mode}`),
           entryFileNames: "[name].js",
           assetFileNames: "style.[ext]",
+          format: 'iife',
         },
       },
     },
