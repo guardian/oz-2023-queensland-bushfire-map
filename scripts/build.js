@@ -1,3 +1,4 @@
+import config from '../project.config.js';
 import path from 'path'
 import esMain from 'es-main';
 import { fileURLToPath } from 'url'
@@ -12,7 +13,11 @@ if (esMain(import.meta)) {
 }
 
 export async function buildAtoms(assetsPath = "") {
-    const atoms = await listDirectories(path.resolve(__dirname, '../src/atoms'));
+    let atoms = await listDirectories(path.resolve(__dirname, '../src/atoms'));
+    if (config.excludeFromBuild) {
+        console.log(`Excluding atoms '${config.excludeFromBuild.join(", ")}' from build.`)
+        atoms = atoms.filter(name => !config.excludeFromBuild.includes(name))
+    }
 
     for (const atomName of atoms) {
         const configEnv = {

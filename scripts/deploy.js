@@ -51,7 +51,14 @@ async function deploy() {
     await deployAssets();
 
     const atoms = await listDirectories(atomsPath);
+
     for (let atom of atoms) {
+        if (config.excludeFromBuild && config.excludeFromBuild.includes(atom)) {
+            spinner.start(`Skipping atom '${atom}'`)
+            spinner.succeed()
+            continue;
+        }
+
         await deployAtom(atom);
     }
 } 
