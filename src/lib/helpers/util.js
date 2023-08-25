@@ -107,4 +107,12 @@ const featureTest = (property, value, noPrefixes) => {
 
 const supportsSticky = () => (featureTest('position', 'sticky') || featureTest('position', '-webkit-sticky'))
 
-export { $, $$, round, numberWithCommas, wait, getDimensions, hashPattern, duplicate, pseq, sum, ordinal, featureTest, supportsSticky }
+const toDict = (arr, key) => {
+	const out = {}
+	arr.forEach(o =>
+		out[o[key]] = o
+	)
+	return out
+}
+
+export { $, $$, round, numberWithCommas, wait, getDimensions, hashPattern, duplicate, pseq, sum, ordinal, featureTest, supportsSticky, toDict }
