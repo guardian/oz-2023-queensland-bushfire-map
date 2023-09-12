@@ -1,6 +1,10 @@
 <script>
+  import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
+
   export let name = "atom";
 </script>
+
+<svelte:window bind:innerWidth={$windowInnerWidth} bind:innerHeight={$windowInnerHeight} />
 
 <div class="atom">
   <h2>Hello {name}</h2>
