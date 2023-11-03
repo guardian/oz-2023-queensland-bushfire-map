@@ -36,7 +36,10 @@
     "vite-plugin-static-copy": "^0.13.0"
   },
   "dependencies": {
-    "preact": "^10.12.1"
+    "d3": "^7.8.5",
+    "dayjs": "^1.11.10",
+    "preact": "^10.12.1",
+    "topojson": "^3.0.2"
   },
   "browserslist": [
     "defaults",

@@ -1,6 +1,6 @@
 export default {
-    title: "Svelte atom template",
-    path: "2022/06/svelte-atom-template",
+    title: "Bushfires in southern Queensland",
+    path: "2023/11/tara-queensland-bushfire-map",
     placeholders: {
         headline: "How the Svelte atom template works",
         standfirst: "This is a description of how the Svelte atom template works",
