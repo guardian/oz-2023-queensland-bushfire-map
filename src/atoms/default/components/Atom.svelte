@@ -103,7 +103,7 @@
             filterPlaces.forEach(function(d,i) {
               context.beginPath();
               context.save();
-              context.fillStyle="#767676";
+              context.fillStyle="#000";
               // context.strokeStyle = 'white';
               context.shadowColor="white";
               context.shadowBlur=5;
@@ -131,6 +131,8 @@
     } 
     imageObj.onload = function() {
       makeMap()
+      window.dispatchEvent(new Event('resize'));
+
     };
    
 

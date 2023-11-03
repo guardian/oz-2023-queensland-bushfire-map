@@ -227,6 +227,7 @@
 { "type": "Feature", "properties": { "scalerank": 0, "name": "Perth", "latitude": -31.955015, "longitude": 115.839999 }, "geometry": { "type": "Point", "coordinates": [ 115.838052879042721, -31.953068770730169 ] } },
 { "type": "Feature", "properties": { "scalerank": 0, "name": "Melbourne", "latitude": -37.820031, "longitude": 144.975016 }, "geometry": { "type": "Point", "coordinates": [ 144.973070375904058, -37.818085453696312 ] } },
 { "type": "Feature", "properties": { "scalerank": 0, "name": "Tara", "latitude": -27.279031, "longitude": 150.4125887 }, "geometry": { "type": "Point", "coordinates": [ 144.973070375904058, -37.818085453696312 ] } },
+{ "type": "Feature", "properties": { "scalerank": 0, "name": "Stanthorpe", "latitude": -28.657066, "longitude": 151.9276531 }, "geometry": { "type": "Point", "coordinates": [ 144.973070375904058, -37.818085453696312 ] } },
 { "type": "Feature", "properties": { "scalerank": 0, "name": "Sydney", "latitude": -33.920011, "longitude": 151.185180 }, "geometry": { "type": "Point", "coordinates": [ 151.183233950147496, -33.918065108628753 ] } }
 ]
 }
