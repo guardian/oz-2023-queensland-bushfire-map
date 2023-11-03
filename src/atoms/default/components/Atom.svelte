@@ -30,7 +30,7 @@
     //   d.lon = +d.longitude;
     //   d.date = dayjs.utc(d.time, "YYYY-MM-DD HHmm")
 	  // })
-
+    
 	  places = results[1]
     loading = false
     // console.log(data)
@@ -44,12 +44,19 @@
     imageObj.src = `__assetsPath__/${settings.properties.basemap_image}`
     
     function makeMap() {
+
+      d3.select("#mapContainer canvas").remove(); 
       height = width / ratio
       console.log(width, height, ratio)
       console.log("making map?")               
       var filterPlaces = places.features.filter((d) => (mobile) ? d.properties.scalerank < 10 : d.properties.scalerank < 8 );
+      var canvas = d3.select("#mapContainer").append("canvas")	
+	                .attr("width", width)
+	                .attr("height", height)
+	                .attr("id", "map")
+	                .attr("overflow", "hidden");     
 
-	    var context = d3.select("#mapContainer canvas").node().getContext("2d"); 	   
+	    var context = canvas.node().getContext("2d"); 	   
 
       var gradient = d3.scaleLinear()
 						.range(['rgba(219, 0, 14, 1)', 'rgba(0, 0, 0, 1)'])
@@ -142,12 +149,46 @@
 
   });
 
+//   function onElementHeightChange(elm, callback) {
+//   var lastHeight = elm.clientHeight, newHeight;
+//   (function run(){
+//     newHeight = elm.clientHeight;
+//     if( lastHeight != newHeight )
+//       callback();
+//     lastHeight = newHeight;
+
+//     if( elm.onElementHeightChangeTimer )
+//       clearTimeout(elm.onElementHeightChangeTimer);
+
+//     elm.onElementHeightChangeTimer = setTimeout(run, 250);
+//   })();
+// }
+// if (window.frameElement) {
+
+// console.log("Inside version 1.1")
+
+// window.parent.postMessage({
+//   sentinel: 'amp',
+//   type: 'embed-size',
+//   height: document.body.scrollHeight
+// }, '*');
+
+// onElementHeightChange(document.body, function() {
+//   window.frameElement.height = document.body.offsetHeight
+// });
+
+// }
+
+
   })
+
+
+  
 </script>
 
 <svelte:window bind:innerWidth={$windowInnerWidth} bind:innerHeight={$windowInnerHeight} />
 
-<div class="atom interactive-wrapper">
+<div class="atom interactive-wrapper" id="fireMap">
   <div id="outer-wrapper" class="inline">
   <div class="row">
     <div id="controls" class="main-col">
@@ -164,20 +205,26 @@
         {#if loading}
           <div id="statusMessage" class="btn">Loading...</div>
         {/if}
-        <canvas width={width} height={height}></canvas>
+        <!-- <canvas width={width} height={height}></canvas> -->
   </div>
 
-  <div class="row notes">
-      <div class="main-col">
+  <div class="row footer">
+    
           <div class="row">
               Guardian graphic | Source: <a href="https://firms.modaps.eosdis.nasa.gov/active_fire/#firms-shapefile">Nasa</a>
           </div>
-      </div>
+    
   </div>
 </div>
 </div>
 
 <style lang="scss">
+
+#fireMap {
+    overflow:hidden;
+    box-sizing:border-box;
+  }
+
   h2 {
     @include f-headline();
     font-size: 20px;

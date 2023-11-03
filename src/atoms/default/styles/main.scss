@@ -7,3 +7,9 @@
 @import "$lib/styles/grid.scss";
 // @import "./full-width-immersive-layout.scss"; // uncomment for full width layout
 // @import "$lib/styles/enhanced_fonts.scss"; // when you need special font features such as lining figures
+
+
+#gv-atom {
+    overflow:hidden;
+    box-sizing:border-box
+  }
